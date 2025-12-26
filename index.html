@@ -26,6 +26,7 @@
             --color-text-tertiary: #666666;
             --color-accent: #ffffff;
             --color-border: #2a2a2a;
+                        --color-teal: #0D9488;
             --font-display: 'Instrument Serif', Georgia, serif;
             --font-body: 'DM Sans', system-ui, sans-serif;
             --spacing-unit: 8px;
@@ -149,8 +150,7 @@
         }
 
         nav a:hover {
-            color: var(--color-text-primary);
-        }
+            color: var(--color-teal);        }
 
         nav a::after {
             content: '';
@@ -319,10 +319,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 2px;
-            background: var(--color-text-primary);
-            transform: scaleX(0);
-            transform-origin: left;
+            height: 3px;            background: var(--color-text-primary);
+            background: var(--color-teal);            transform-origin: left;
             transition: transform 0.4s var(--transition-smooth);
         }
 
@@ -338,8 +336,7 @@
         .service-number {
             font-size: 0.75rem;
             font-weight: 500;
-            color: var(--color-text-tertiary);
-            margin-bottom: calc(var(--spacing-unit) * 3);
+            color: var(--color-teal);            margin-bottom: calc(var(--spacing-unit) * 3);
         }
 
         .service-card h3 {
@@ -435,6 +432,10 @@
             transform-origin: right;
             transition: transform 0.4s var(--transition-smooth);
         }
+
+         .contact-email:hover {
+                         color: var(--color-teal);
+         }
 
         .contact-email:hover::after {
             transform: scaleX(1);
