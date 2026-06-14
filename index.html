@@ -130,7 +130,7 @@
 
         .logo-text {
             font-family: var(--font-display);
-            font-size: 1.25rem;
+            font-size: 2.25rem;
             font-weight: 400;
             letter-spacing: -0.01em;
         }
@@ -371,6 +371,133 @@
             font-style: italic;
         }
 
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: calc(var(--spacing-unit) * 4);
+        }
+
+        .insight-card {
+            display: flex;
+            flex-direction: column;
+            padding: calc(var(--spacing-unit) * 5);
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.4s var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--color-teal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--transition-smooth);
+        }
+
+        .insight-card:hover {
+            background: var(--color-bg-card);
+            border-color: var(--color-text-tertiary);
+        }
+
+        .insight-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .insight-date {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--color-teal);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+
+        .insight-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.25;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            color: var(--color-text-primary);
+        }
+
+        .insight-card p {
+            font-size: 0.9375rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+
+        .insight-link {
+            margin-top: auto;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-primary);
+        }
+
+        .insights-subscribe {
+            margin-top: calc(var(--spacing-unit) * 6);
+            padding: calc(var(--spacing-unit) * 5);
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: calc(var(--spacing-unit) * 3);
+        }
+
+        .insights-subscribe-text h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: calc(var(--spacing-unit) * 1);
+            color: var(--color-text-primary);
+        }
+
+        .insights-subscribe-text p {
+            font-size: 0.9375rem;
+            color: var(--color-text-secondary);
+        }
+
+        .insights-subscribe-button {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-bg);
+            background: var(--color-text-primary);
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 4);
+            border-radius: 4px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.3s var(--transition-smooth);
+        }
+
+        .insights-subscribe-button:hover {
+            background: var(--color-teal);
+            color: var(--color-text-primary);
+        }
+
+        .clients-statement {
+            max-width: 760px;
+        }
+
+        .clients-statement p {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
         .team-content {
             max-width: 600px;
         }
@@ -410,6 +537,12 @@
             margin-bottom: calc(var(--spacing-unit) * 4);
         }
 
+        .contact-emails {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         .contact-email {
             display: inline-block;
             font-family: var(--font-display);
@@ -418,6 +551,10 @@
             text-decoration: none;
             position: relative;
             transition: color 0.3s var(--transition-smooth);
+        }
+
+        .contact-email + .contact-email {
+            margin-top: calc(var(--spacing-unit) * 1.5);
         }
 
         .contact-email::after {
@@ -502,13 +639,19 @@
         }
 
         @media (max-width: 968px) {
-            .services-grid {
+            .services-grid,
+            .insights-grid {
                 grid-template-columns: 1fr;
             }
 
             .about-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .insights-subscribe {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
 
@@ -586,6 +729,7 @@
             <nav>
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
+                <a href="#insights">Insights</a>
                 <a href="#clients">Clients</a>
                 <a href="#team">Team</a>
                 <a href="#contact">Contact</a>
@@ -650,14 +794,50 @@
             </div>
         </section>
 
+        <section id="insights">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">Insights</p>
+                    <h2 class="section-title">Analysis from Scott's Global Health Dispatch</h2>
+                </div>
+                <div class="insights-grid">
+                    <a href="https://scottmatafwali.substack.com/p/ai-for-regulatory-enforcement-in" class="insight-card" target="_blank" rel="noopener">
+                        <p class="insight-date">9 June 2026</p>
+                        <h3>AI for Regulatory Enforcement in Africa</h3>
+                        <p>How AI changes the economics of health regulation, and why African authorities should own that capability rather than rent it.</p>
+                        <span class="insight-link">Read on Substack →</span>
+                    </a>
+                    <a href="https://scottmatafwali.substack.com/p/global-health-in-the-transactional" class="insight-card" target="_blank" rel="noopener">
+                        <p class="insight-date">4 January 2026</p>
+                        <h3>Global Health in the Transactional Era: Africa's Strategic Chips</h3>
+                        <p>How disease burden, genomic data, and demographics can become bargaining power in the new era of health diplomacy.</p>
+                        <span class="insight-link">Read on Substack →</span>
+                    </a>
+                    <a href="https://scottmatafwali.substack.com/" class="insight-card" target="_blank" rel="noopener">
+                        <p class="insight-date">Publication</p>
+                        <h3>Scott's Global Health Dispatch</h3>
+                        <p>Analysis on pharmaceutical policy, regulatory systems, and public health delivery across African and emerging markets.</p>
+                        <span class="insight-link">View all articles →</span>
+                    </a>
+                </div>
+                <div class="insights-subscribe">
+                    <div class="insights-subscribe-text">
+                        <h3>Follow the analysis</h3>
+                        <p>Subscribe to Scott's Global Health Dispatch for new articles direct to your inbox.</p>
+                    </div>
+                    <a href="https://scottmatafwali.substack.com/subscribe" class="insights-subscribe-button" target="_blank" rel="noopener">Subscribe</a>
+                </div>
+            </div>
+        </section>
+
         <section id="clients" class="clients">
             <div class="container">
                 <div class="section-header">
                     <p class="section-label">Clients & Partners</p>
                     <h2 class="section-title">Working with mission-driven organisations</h2>
                 </div>
-                <div class="coming-soon">
-                    <p>Coming soon</p>
+                <div class="clients-statement">
+                    <p>Pharmalith Advisory works with mission-driven organisations across the global health ecosystem, including multilateral agencies, bilateral donors, philanthropic foundations, governments and national regulatory authorities, and market-based health innovators.</p>
                 </div>
             </div>
         </section>
@@ -686,7 +866,10 @@
                 <div class="contact-grid">
                     <div class="contact-intro">
                         <p>Pharmalith Advisory welcomes enquiries from organisations seeking to strengthen pharmaceutical systems, improve medicines quality, or develop evidence-based global health policy solutions.</p>
-                        <a href="mailto:info@pharmalithadvisory.com" class="contact-email">info@pharmalithadvisory.com</a>
+                        <div class="contact-emails">
+                            <a href="mailto:info@pharmalithadvisory.com" class="contact-email">info@pharmalithadvisory.com</a>
+                            <a href="mailto:scott@pharmalithadvisory.com" class="contact-email">scott@pharmalithadvisory.com</a>
+                        </div>
                     </div>
                     <div class="contact-details">
                         <div class="contact-block">
